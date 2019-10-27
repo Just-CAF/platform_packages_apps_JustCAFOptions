@@ -19,6 +19,7 @@ package org.justcaf.options.fragments;
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.os.Bundle;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -36,6 +37,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 
+import android.util.Log;
 import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
@@ -50,19 +52,35 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-public class StatusBar extends SettingsPreferenceFragment implements
+public class Statusbar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
+
+    private static final String BATTERY_STYLE = "status_bar_battery_style";
+
+    private ListPreference mBatteryStyle;
+    private Context mContext;
+    private ContentResolver mContentResolver;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.statusbar);
-        PreferenceScreen prefSet = getPreferenceScreen();
+        PreferenceScreen ps = getPreferenceScreen();
+        mContentResolver = getActivity().getContentResolver();
+
+        mBatteryStyle = (ListPreference) ps.findPreference(BATTERY_STYLE);
+        mBatteryStyle.setOnPreferenceChangeListener(this);
+        mBatteryStyle.setValue(Integer.toString(Settings.System.getInt(mContentResolver, BATTERY_STYLE, 0)));
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mBatteryStyle) {
+            int batteryStyle = Integer.parseInt((String) newValue);
+            Settings.System.putInt(mContentResolver, BATTERY_STYLE, batteryStyle);
+            return true;
+        }
         return false;
     }
 

@@ -64,7 +64,7 @@ public class JustCAFMain extends SettingsPreferenceFragment
         mClockFace.setOnPreferenceChangeListener(this);
 
         // Initialize default/selected values
-        mClockFace.setValue(getCurrentOptionString(Settings.Secure.getString(mContext, KEY_CLOCK_FACE));
+        mClockFace.setValue(Settings.Secure.getString(mContentResolver, KEY_CLOCK_FACE));
     }
 
     @Override

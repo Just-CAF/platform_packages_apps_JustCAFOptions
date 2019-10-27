@@ -25,6 +25,12 @@
             android:title="@string/system_title"
             android:summary="@string/system_summary"          
             android:fragment="org.justcaf.options.fragments.System"/>
+
+        <Preference
+            android:key="statusbary_category"
+            android:title="@string/statusbar_title"
+            android:summary="@string/statusbar_title"          
+            android:fragment="org.justcaf.options.fragments.Statusbar"/>
     
         <ListPreference
             android:key="android.theme.customization.clock_Face"
