@@ -32,7 +32,6 @@
             android:summary="%s"
             android:entries="@array/lock_screen_clock_face_entries"
             android:entryValues="@array/lock_screen_clock_face_values"
-            android:defaultValue="0"
-            settings:controller="org.justcaf.options.theming.ClockFacePreferenceController"/>
+            android:defaultValue="0"/>
             
 </PreferenceScreen>
