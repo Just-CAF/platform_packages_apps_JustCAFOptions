@@ -21,8 +21,21 @@
     <string name="justcaf_options_summary">Device options</string>
 
     <!-- Categories -->
+    <string name="system_title">System options</string>
+    <string name="system_summary">Change system option like DT2W, etc.</string>
+    
     <string name="statusbar_title">StatusBar</string>
     <string name="animation_title">Animations</string>
+    
+    <!-- Clock faces -->
+    <string name="clock_face_default">Default</string>
+    <string name="clock_face_analog">Analog</string>
+    <string name="clock_face_bubble">Bubble</string>
+    <string name="clock_face_text">Text</string>
+    
+    <!-- Tap2wake -->
+    <string name="tap_to_wake">Tap to wake</string>
+    <string name="tap_to_wake_summary">Double-tap anywhere on the screen to wake device</string>
     
 </resources>
 
