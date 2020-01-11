@@ -56,8 +56,10 @@ public class Statusbar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String BATTERY_STYLE = "status_bar_battery_style";
+    private static final String BATTERY_PERCENT = "status_bar_show_battery_percent";
 
     private ListPreference mBatteryStyle;
+    private SwitchPreference mBatteryPercent;
     private Context mContext;
     private ContentResolver mContentResolver;
 
@@ -72,6 +74,10 @@ public class Statusbar extends SettingsPreferenceFragment implements
         mBatteryStyle = (ListPreference) ps.findPreference(BATTERY_STYLE);
         mBatteryStyle.setOnPreferenceChangeListener(this);
         mBatteryStyle.setValue(Integer.toString(Settings.System.getInt(mContentResolver, BATTERY_STYLE, 0)));
+
+        mBatteryPercent = (SwitchPreference) ps.findPreference(BATTERY_PERCENT);
+        mBatteryPercent.setOnPreferenceChangeListener(this);
+        mBatteryPercent.setChecked(Settings.System.getInt(mContentResolver, BATTERY_PERCENT, 0) == 1 ? true : false);
     }
 
     @Override
@@ -79,6 +85,11 @@ public class Statusbar extends SettingsPreferenceFragment implements
         if (preference == mBatteryStyle) {
             int batteryStyle = Integer.parseInt((String) newValue);
             Settings.System.putInt(mContentResolver, BATTERY_STYLE, batteryStyle);
+            return true;
+        }
+        if (preference == mBatteryPercent) {
+            int batteryPercent = ((Boolean) newValue) ? 1 : 0;
+            Settings.System.putInt(mContentResolver, BATTERY_PERCENT, batteryPercent);
             return true;
         }
         return false;
