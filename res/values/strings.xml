@@ -32,10 +32,6 @@
     <string name="clock_face_bubble">Bubble</string>
     <string name="clock_face_text">Text</string>
     
-    <!-- Tap2wake -->
-    <string name="tap_to_wake">Tap to wake</string>
-    <string name="tap_to_wake_summary">Double-tap anywhere on the screen to wake device</string>
-    
     <!-- Battery -->
     <string name="status_bar_battery_title">Battery indicator</string>
     <string name="status_bar_battery_style_title">Battery style</string>
