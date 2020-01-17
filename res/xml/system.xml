@@ -26,6 +26,8 @@
         android:title="@string/tap_to_wake"
         android:summary="@string/tap_to_wake_summary" />
     
-    
+    <SwitchPreference
+        android:key="em_key_powermenu"
+        android:title="@string/show_emergency_button" />
 
 </PreferenceScreen>

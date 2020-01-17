@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (C) 2020 Just-CAF
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -53,16 +53,32 @@ import java.util.Collections;
 public class System extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private SwitchPreference mEmergencyButtonPowerMenu;
+    private ContentResolver mContentResolver;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.system);
-        PreferenceScreen prefSet = getPreferenceScreen();
+        PreferenceScreen ps = getPreferenceScreen();
+        mContentResolver = getActivity().getContentResolver();
+
+        mEmergencyButtonPowerMenu = (SwitchPreference) ps.findPreference("em_key_powermenu");
+        mEmergencyButtonPowerMenu.setOnPreferenceChangeListener(this);
+        mEmergencyButtonPowerMenu.setChecked(Settings.System.getInt(mContentResolver,
+                        Settings.Global.SHOW_EMERGENCY_BUTTON_POWER_MENU, 0) == 1 ? true : false);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mEmergencyButtonPowerMenu) {
+            int show = ((Boolean) newValue) ? 1 : 0;
+            Settings.Global.putInt(mContentResolver, Settings.Global.SHOW_EMERGENCY_BUTTON_POWER_MENU,
+                    show);
+            return true;
+        }
+
         return false;
     }
 
