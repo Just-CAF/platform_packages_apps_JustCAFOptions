@@ -32,4 +32,8 @@
         android:title="@string/status_bar_battery_percentage_title"
         android:summary="@string/status_bar_battery_percentage_summary" />
 
+    <SwitchPreference
+        android:key="status_bar_show_in_out_arrows"
+        android:title="@string/statusbar_show_in_out_arrows"
+        android:summary="@string/statusbar_show_in_out_arrows_summary" />
 </PreferenceScreen>

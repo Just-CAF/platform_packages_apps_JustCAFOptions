@@ -57,9 +57,11 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
     private static final String BATTERY_STYLE = "status_bar_battery_style";
     private static final String BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String IN_OUT_ARROWS = "statusbar_show_in_out_arrows";
 
     private ListPreference mBatteryStyle;
     private SwitchPreference mBatteryPercent;
+    private SwitchPreference mInOutArrows;
     private Context mContext;
     private ContentResolver mContentResolver;
 
@@ -78,6 +80,11 @@ public class Statusbar extends SettingsPreferenceFragment implements
         mBatteryPercent = (SwitchPreference) ps.findPreference(BATTERY_PERCENT);
         mBatteryPercent.setOnPreferenceChangeListener(this);
         mBatteryPercent.setChecked(Settings.System.getInt(mContentResolver, BATTERY_PERCENT, 0) == 1 ? true : false);
+
+        mInOutArrows = (SwitchPreference) ps.findPreference(IN_OUT_ARROWS);
+        mInOutArrows.setOnPreferenceChangeListener(this);
+        mInOutArrows.setValue(Integer.toString(Settings.System.getInt(mContentResolver,
+                            Settings.System.SHOW_STATUSBAR_IN_OUT, 0)));
     }
 
     @Override
@@ -90,6 +97,11 @@ public class Statusbar extends SettingsPreferenceFragment implements
         if (preference == mBatteryPercent) {
             int batteryPercent = ((Boolean) newValue) ? 1 : 0;
             Settings.System.putInt(mContentResolver, BATTERY_PERCENT, batteryPercent);
+            return true;
+        }
+        if (preference == mInOutArrows) {
+            int show = ((Boolean) newValue) ? 1 : 0;
+            Settings.System.putInt(mContentResolver, Settings.System.SHOW_STATUSBAR_IN_OUT, show);
             return true;
         }
         return false;
