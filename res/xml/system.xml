@@ -15,13 +15,18 @@
      limitations under the License.
 -->
 
-<PreferenceScreen 
+<PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/system_title" >
-    
+
     <SwitchPreference
         android:key="em_key_powermenu"
         android:title="@string/show_emergency_button" />
+
+    <SwitchPreference
+        android:key="quick_unlock"
+        android:title="@string/lockscreen_quick_unlock"
+        android:summary="@string/lockscreen_quick_unlock_summary" />
 
 </PreferenceScreen>

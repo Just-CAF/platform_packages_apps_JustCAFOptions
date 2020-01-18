@@ -25,13 +25,13 @@
     <string name="system_summary">Change system option</string>
     <string name="statusbar_title">Statusbar</string>
     <string name="statusbar_summary">Change the statusbar option, clock, etc.</string>
-    
+
     <!-- Clock faces -->
     <string name="clock_face_default">Default</string>
     <string name="clock_face_analog">Analog</string>
     <string name="clock_face_bubble">Bubble</string>
     <string name="clock_face_text">Text</string>
-    
+
     <!-- Battery -->
     <string name="status_bar_battery_style_title">Battery style</string>
     <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
@@ -46,5 +46,7 @@
     <string name="show_emergency_button">Show emergency button in power menu</string>
     <string name="statusbar_show_in_out_arrows">Show network traffic symbols</string>
     <string name="statusbar_show_in_out_arrows_summary">Show network traffic arrows next to network icon</string>
-</resources>
 
+    <string name="lockscreen_quick_unlock">Unlock without pressing enter key</string>
+    <string name="lockscreen_quick_unlock_summary">This requires a system restart to activate</string>
+</resources>

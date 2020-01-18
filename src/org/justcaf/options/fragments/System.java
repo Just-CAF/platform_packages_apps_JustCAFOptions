@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package org.justcaf.options.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -54,6 +54,7 @@ public class System extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private SwitchPreference mEmergencyButtonPowerMenu;
+    private SwitchPreference mQuickUnlock;
     private ContentResolver mContentResolver;
 
     @Override
@@ -68,14 +69,25 @@ public class System extends SettingsPreferenceFragment implements
         mEmergencyButtonPowerMenu.setOnPreferenceChangeListener(this);
         mEmergencyButtonPowerMenu.setChecked(Settings.System.getInt(mContentResolver,
                         Settings.Global.SHOW_EMERGENCY_BUTTON_POWER_MENU, 0) == 1 ? true : false);
+
+        mQuickUnlock = (SwitchPreference) ps.findPreference("quick_unlock");
+        mQuickUnlock.setOnPreferenceChangeListener(this);
+        mQuickUnlock.setChecked(Settings.System.getInt(mContentResolver,
+                        Settings.Global.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1 ? true : false);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mEmergencyButtonPowerMenu) {
             int show = ((Boolean) newValue) ? 1 : 0;
-            Settings.Global.putInt(mContentResolver, Settings.Global.SHOW_EMERGENCY_BUTTON_POWER_MENU,
-                    show);
+            Settings.Global.putInt(mContentResolver,
+                    Settings.Global.SHOW_EMERGENCY_BUTTON_POWER_MENU, show);
+            return true;
+        }
+        if (preference == mQuickUnlock) {
+            int enable = ((Boolean) newValue) ? 1 : 0;
+            Settings.Global.putInt(mContentResolver,
+                    Settings.Global.LOCKSCREEN_QUICK_UNLOCK_CONTROL, enable);
             return true;
         }
 
