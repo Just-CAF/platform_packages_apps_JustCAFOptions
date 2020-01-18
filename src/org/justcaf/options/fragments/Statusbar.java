@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package org.justcaf.options.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -57,7 +57,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
     private static final String BATTERY_STYLE = "status_bar_battery_style";
     private static final String BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String IN_OUT_ARROWS = "statusbar_show_in_out_arrows";
+    private static final String IN_OUT_ARROWS = "status_bar_show_in_out_arrows";
 
     private ListPreference mBatteryStyle;
     private SwitchPreference mBatteryPercent;

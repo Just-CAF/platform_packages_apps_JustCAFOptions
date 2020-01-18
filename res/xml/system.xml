@@ -29,4 +29,9 @@
         android:title="@string/lockscreen_quick_unlock"
         android:summary="@string/lockscreen_quick_unlock_summary" />
 
+    <SwitchPreference
+        android:key="frb_key_enable"
+        android:title="@string/frb_enable"
+        android:summary="@string/frb_enable_summary" />
+
 </PreferenceScreen>

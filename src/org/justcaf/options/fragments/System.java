@@ -55,6 +55,7 @@ public class System extends SettingsPreferenceFragment implements
 
     private SwitchPreference mEmergencyButtonPowerMenu;
     private SwitchPreference mQuickUnlock;
+    private SwitchPreference mFrbEnable;
     private ContentResolver mContentResolver;
 
     @Override
@@ -73,7 +74,12 @@ public class System extends SettingsPreferenceFragment implements
         mQuickUnlock = (SwitchPreference) ps.findPreference("quick_unlock");
         mQuickUnlock.setOnPreferenceChangeListener(this);
         mQuickUnlock.setChecked(Settings.System.getInt(mContentResolver,
-                        Settings.Global.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1 ? true : false);
+                        Settings.Global.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1 ? true : false
+
+        mFrbEnable = (SwitchPreference) ps.findPreference("frb_key_enable");
+        mFrbEnable.setOnPreferenceChangeListener(this);
+        mFrbEnable.setChecked(Settings.Global.getInt(mContentResolver,
+                        Settings.Global.SYSTEM_FLOATINGROTATIONBUTTON_ENABLED, 0) == 1 ? true : false);
     }
 
     @Override
@@ -88,6 +94,12 @@ public class System extends SettingsPreferenceFragment implements
             int enable = ((Boolean) newValue) ? 1 : 0;
             Settings.Global.putInt(mContentResolver,
                     Settings.Global.LOCKSCREEN_QUICK_UNLOCK_CONTROL, enable);
+            return true;
+        }
+        if (preference == mFrbEnable) {
+            int enable = ((Boolean) newValue) ? 1 : 0;
+            Settings.Global.putInt(mContentResolver,
+                    Settings.Global.SYSTEM_FLOATINGROTATIONBUTTON_ENABLED, enable);
             return true;
         }
 

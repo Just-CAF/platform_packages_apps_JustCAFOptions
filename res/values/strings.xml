@@ -49,4 +49,7 @@
 
     <string name="lockscreen_quick_unlock">Unlock without pressing enter key</string>
     <string name="lockscreen_quick_unlock_summary">This requires a system restart to activate</string>
+
+    <string name="frb_enable">Enable floating rotation button</string>
+    <string name="frb_enable_summary">Allows to rotate screen without enabling <i>Auto rotate</i></string>
 </resources>
