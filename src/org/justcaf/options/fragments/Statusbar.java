@@ -83,8 +83,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
         mInOutArrows = (SwitchPreference) ps.findPreference(IN_OUT_ARROWS);
         mInOutArrows.setOnPreferenceChangeListener(this);
-        mInOutArrows.setValue(Integer.toString(Settings.System.getInt(mContentResolver,
-                            Settings.System.SHOW_STATUSBAR_IN_OUT, 0)));
+        mInOutArrows.setChecked(Settings.System.getInt(mContentResolver, Settings.System.SHOW_STATUSBAR_IN_OUT, 0)
+		 == 1 ? true : false);
     }
 
     @Override

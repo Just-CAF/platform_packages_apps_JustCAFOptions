@@ -74,7 +74,7 @@ public class System extends SettingsPreferenceFragment implements
         mQuickUnlock = (SwitchPreference) ps.findPreference("quick_unlock");
         mQuickUnlock.setOnPreferenceChangeListener(this);
         mQuickUnlock.setChecked(Settings.System.getInt(mContentResolver,
-                        Settings.Global.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1 ? true : false
+                        Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1 ? true : false);
 
         mFrbEnable = (SwitchPreference) ps.findPreference("frb_key_enable");
         mFrbEnable.setOnPreferenceChangeListener(this);
@@ -92,8 +92,8 @@ public class System extends SettingsPreferenceFragment implements
         }
         if (preference == mQuickUnlock) {
             int enable = ((Boolean) newValue) ? 1 : 0;
-            Settings.Global.putInt(mContentResolver,
-                    Settings.Global.LOCKSCREEN_QUICK_UNLOCK_CONTROL, enable);
+            Settings.System.putInt(mContentResolver,
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, enable);
             return true;
         }
         if (preference == mFrbEnable) {
