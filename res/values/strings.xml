@@ -22,9 +22,9 @@
 
     <!-- Categories -->
     <string name="system_title">System options</string>
-    <string name="system_summary">Change system option</string>
+    <string name="system_summary">Change system options</string>
     <string name="statusbar_title">Statusbar</string>
-    <string name="statusbar_summary">Change the statusbar option, clock, etc.</string>
+    <string name="statusbar_summary">Change the statusbar options, clock, etc.</string>
 
     <!-- Clock faces -->
     <string name="clock_face_default">Default</string>
@@ -47,9 +47,9 @@
     <string name="statusbar_show_in_out_arrows">Show network traffic symbols</string>
     <string name="statusbar_show_in_out_arrows_summary">Show network traffic arrows next to network icon</string>
 
-    <string name="lockscreen_quick_unlock">Unlock without pressing enter key</string>
-    <string name="lockscreen_quick_unlock_summary">This requires a system restart to activate</string>
+    <string name="lockscreen_quick_unlock">Enable quick unlock</string>
+    <string name="lockscreen_quick_unlock_summary">Unlock without pressing enter key</string>
 
     <string name="frb_enable">Enable floating rotation button</string>
-    <string name="frb_enable_summary">Allows to rotate screen without enabling <i>Auto rotate</i></string>
+    <string name="frb_enable_summary">Rotate screen without enabling <i>Auto rotate</i></string>
 </resources>
