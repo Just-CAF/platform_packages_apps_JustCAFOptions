@@ -29,7 +29,6 @@ import android.provider.Settings;
 import android.provider.Settings.Secure;
 import android.util.Log;
 
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
@@ -39,18 +38,12 @@ import com.android.settings.core.BasePreferenceController;
 
 import com.android.settings.SettingsPreferenceFragment;
 
-public class JustCAFMain extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener {
+public class JustCAFMain extends SettingsPreferenceFragment {
 
     private Context mContext;
-    private ListPreference mClockFace;
     private ContentResolver mContentResolver;
 
     private static final String TAG = JustCAFMain.class.getSimpleName();
-
-    private static final String CLOCK_FACE = "android.theme.customization.clock_Face";
-
-    private static final String KEY_CLOCK_FACE = "lock_screen_custom_clock_face";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -60,24 +53,6 @@ public class JustCAFMain extends SettingsPreferenceFragment
         mContentResolver = getActivity().getContentResolver();
 
         final PreferenceScreen ps = getPreferenceScreen();
-        mClockFace = (ListPreference) ps.findPreference(CLOCK_FACE);
-        mClockFace.setOnPreferenceChangeListener(this);
-
-        // Initialize default/selected values
-        mClockFace.setValue(Settings.Secure.getString(mContentResolver, KEY_CLOCK_FACE));
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-
-	if (preference == mClockFace) {
-            String newFace = (String) newValue;
-
-            Log.i(TAG, "onPreferenceChange");
-            Log.i(TAG, newFace);
-            Settings.Secure.putString(mContentResolver, KEY_CLOCK_FACE, newFace);
-        }
-        return true;
     }
 
     @Override

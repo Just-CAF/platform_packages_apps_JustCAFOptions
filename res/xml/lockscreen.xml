@@ -26,4 +26,9 @@
         android:summary="@string/lockscreen_art_summary"
         android:defaultValue="false" />
 
+    <org.justcaf.options.preferences.SecureSettingSwitchPreference
+        android:key="lockscreen_translucent_notifications_bg_enabled"
+        android:title="@string/translucent_lockscreen_notifications_bg_title"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

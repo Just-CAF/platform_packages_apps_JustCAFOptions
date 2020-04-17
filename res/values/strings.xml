@@ -26,6 +26,7 @@
     <string name="statusbar_title">Statusbar options</string>
     <string name="statusbar_summary">Change the statusbar options, clock, etc.</string>
     <string name="lockscreen_title">Lockscreen options</string>
+    <string name="lockscreen_summary">Change the lockscreen options</string>
 
     <!-- Clock faces -->
     <string name="clock_face_default">Default</string>
@@ -57,5 +58,8 @@
     <!-- Lockscreen -->
     <string name="lockscreen_art_title">Lockscreen album art</string>
     <string name="lockscreen_art_summary">Enable lockscreen album art</string>
+
+    <!-- Translucent lockscreen notifications background -->
+    <string name="translucent_lockscreen_notifications_bg_title">Translucent notifications background</string>
 
 </resources>
