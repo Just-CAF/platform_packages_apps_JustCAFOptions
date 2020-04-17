@@ -53,4 +53,9 @@
 
     <string name="frb_enable">Enable floating rotation button</string>
     <string name="frb_enable_summary">Rotate screen without enabling <i>Auto rotate</i></string>
+
+    <!-- Lockscreen -->
+    <string name="lockscreen_art_title">Lockscreen album art</string>
+    <string name="lockscreen_art_summary">Enable lockscreen album art</string>
+
 </resources>
